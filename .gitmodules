@@ -1,0 +1,3 @@
+[submodule "KonocoMapKit"]
+	path = KonocoMapKit
+	url = https://github.com/Konoco/KonocoMapKit.git
