@@ -26,10 +26,7 @@
 #import <KonocoMapKit/KonocoMapKit.h>
 
 @interface KonocoMapWindowController ()
-- (void)setStyleBorderless;
-- (void)setStyleNormal;
-- (void)setFullScreen;
-- (void)setWindowScreen;
+
 @end
 
 @implementation KonocoMapWindowController
@@ -64,45 +61,7 @@
 
 - (IBAction)toggleFullscreen:(id)sender
 {
-    if (inFullScreenMode) {
-        [self setWindowScreen];
-        [self performSelector:@selector(setStyleNormal) 
-                   withObject:nil
-                   afterDelay:[self.window animationResizeTime:normalFrame]];
-        inFullScreenMode = NO;
-    } else {
-        [self setStyleBorderless];
-        [self performSelector:@selector(setFullScreen)
-                   withObject:nil
-                   afterDelay:[self.window animationResizeTime:[[NSScreen mainScreen] frame]]];
-        inFullScreenMode = YES;
-    }
-}
-
-#pragma mark - Fullscreen
-
-- (void)setStyleBorderless {
-    normalStyleMask = [self.window styleMask];
-    [self.window setStyleMask:NSBorderlessWindowMask];
-}
-
-- (void)setStyleNormal {
-    [self.window setStyleMask:normalStyleMask];
-}
-
-- (void)setFullScreen {
-    normalFrame = [self.window frame];
-    [self.window setLevel:CGShieldingWindowLevel()];
-    [self.window setFrame:[[NSScreen mainScreen] frame]
-                  display:YES
-                  animate:YES];
-}
-
-- (void)setWindowScreen {
-    [self.window setLevel:kCGNormalWindowLevel];
-    [self.window setFrame:normalFrame
-                  display:YES
-                  animate:YES];
+    [self.window toggleFullScreen:sender];
 }
 
 #pragma mark -

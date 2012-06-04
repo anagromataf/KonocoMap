@@ -148,6 +148,7 @@
 		F6963B321390237500695981 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Konoco;
 			};
 			buildConfigurationList = F6963B351390237500695981 /* Build configuration list for PBXProject "KonocoMap" */;
